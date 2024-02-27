@@ -12,12 +12,12 @@ input_string = ARGV[0]
 # Define the regular expression pattern
 pattern = /School/
 
-# Use the match method to find the pattern in the input string
-match_result = input_string.match(pattern)
+# Use the scan method to find all occurrences of the pattern in the input string
+matches = input_string.scan(pattern)
 
 # Output the result
-if match_result
-  puts "#{match_result[0]}$"
+if matches.any?
+  puts "#{matches.join}$"
 else
   puts "$"
 end
