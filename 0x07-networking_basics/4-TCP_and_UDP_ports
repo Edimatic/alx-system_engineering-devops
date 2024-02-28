@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
-# This script displays listening sockets with the PID and name of the program to which each socket belongs
+# The script will Display listening sockets with PID and program name
 
-# Check if the script is run with sudo
-if [[ $EUID -ne 0 ]]; then
-   echo "This script needs to be run with sudo or as root."
-   exit 1
-fi
-
-# Display listening sockets with PID and program name
 netstat -lp
 
