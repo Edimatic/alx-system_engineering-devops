@@ -1,7 +1,8 @@
-# SSH
+#	SSH
+
 SSH stands for Secure Shell. It's a cryptographic network protocol that allows secure data communication between two computers over an unsecured network, such as the internet. SSH is widely used for remote command-line login and remote command execution, allowing users to securely access and manage remote systems.
 
-# Key Features of SSH:
+#	Key Features of SSH:
 Encryption: SSH encrypts all data transmitted between the client and the server, including passwords and commands, making it secure against eavesdropping and man-in-the-middle attacks.
 Authentication: SSH uses various methods for user authentication, such as password-based authentication, public-key authentication, and more advanced methods like two-factor authentication.
 
