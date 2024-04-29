@@ -10,7 +10,7 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  ehoneah-frontend
+frontend  edimatic-frontend
         bind *:80
         mode http
         default_backend edimatic-backend
