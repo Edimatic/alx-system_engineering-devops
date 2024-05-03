@@ -3,9 +3,14 @@
 
 dns_config () {
     subdomain="$2"
-    ip=$(dig +short "$subdomain"."$1" | tail -n1)
-    record_type=$(dig "$subdomain"."$1" | awk '/ANSWER SECTION/ {getline; print $4}')
-    echo "The subdomain $subdomain is a $record_type record and points to $ip"
+    output=$(dig +short "$subdomain"."$1")
+    if [ -n "$output" ]; then
+        ip=$(echo "$output" | head -n1)
+        record_type=$(dig "$subdomain"."$1" | awk '/ANSWER SECTION/ {getline; print $4}')
+        echo "The subdomain $subdomain is a $record_type record and points to $ip"
+    else
+        echo "The subdomain $subdomain does not exist."
+    fi
 }
 
 if [ "$#" == 1 ]; then
