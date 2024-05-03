@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
-# write a Bash script that will display information about the subdomains
+# Write a Bash script that will display information about the subdomains
 
 dns_config () {
     subdomain="$2"
-    ip=$(dig +short "$subdomain"."$1")
+    ip=$(dig +short "$subdomain"."$1" | tail -n1)
     record_type=$(dig "$subdomain"."$1" | awk '/ANSWER SECTION/ {getline; print $4}')
     echo "The subdomain $subdomain is a $record_type record and points to $ip"
 }
 
-if [ "$#" == 1 ]
-then
-  dns_config "$1" "www"
-  dns_config "$1" "lb-01"
-  dns_config "$1" "web-01"
-  dns_config "$1" "web-02"
-elif [ "$#" == 2 ]
-then
-  dns_config "$1" "$2"
+if [ "$#" == 1 ]; then
+    dns_config "$1" "www"
+    dns_config "$1" "lb-01"
+    dns_config "$1" "web-01"
+    dns_config "$1" "web-02"
+elif [ "$#" == 2 ]; then
+    dns_config "$1" "$2"
 fi
