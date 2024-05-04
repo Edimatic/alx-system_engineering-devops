@@ -1,7 +1,27 @@
 #!/usr/bin/env bash
-# Installs nginx server
-apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-service nginx start
+
+# Update package index
+sudo apt-get update
+
+# Install nginx
+sudo apt-get install nginx -y
+
+# Set nginx to listen on port 80
+sudo sed -i 's/listen\s*80;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Restart nginx
+sudo service nginx restart
+
+# Create a simple HTML file with "Hello World!" content
+echo "<html><body>Hello World!</body></html>" | sudo tee /var/www/html/index.html > /dev/null
+
+# Check if Nginx is serving the page with "Hello World!"
+response=$(curl -s http://localhost)
+
+# Verify the response
+if [[ $response == *"Hello World!"* ]]; then
+    echo "Nginx configured successfully"
+else
+    echo "Nginx configuration failed"
+fi
+
