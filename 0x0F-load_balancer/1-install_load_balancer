@@ -34,14 +34,14 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend clickviral-tech-frontend
+frontend edimatic-tech-frontend
     bind *:80
-    default_backend clickviral-tech-backend
+    default_backend edimatic-tech-backend
 
-backend clickviral-tech-backend
+backend edimatic-tech-backend
     balance roundrobin
-    server 151666-web-01 100.25.190.21:80 check
-    server 151666-web-02 54.160.77.90:80 check
+    server 151666-web-01 100.25.168.101:80 check
+    server 443429-web-02 35.175.63.83:80 check
 "
 
 # shellcheck disable=SC2154
