@@ -1,0 +1,18 @@
+#step by step command being executed to install Certbot
+
+#Terminating SSL on HAproxy” means that HAproxy is configured to handle encrypted traffic, unencrypt it and pass it on to its destination.
+
+#Create a certificate using certbot and configure HAproxy to accept encrypted traffic for your subdomain www.
+
+sudo apt update
+sudo apt install snapd
+sudo apt-get remove certbot
+sudo apt-get install certbot
+sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d www.edimatic.tech
+sudo service haproxy stop
+sudo ls /etc/letsencrypt/live/www.edimatic.tech
+sudo mkdir -p /etc/haproxy/certs
+DOMAIN='www.edimatic.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+sudo chmod -R go-rwx /etc/haproxy/certs
+sudo vim /etc/haproxy/haproxy.cfg
+sudo service haproxy start
