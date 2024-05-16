@@ -49,3 +49,4 @@ backend edimatic-backend
         balance roundrobin
         server 443429-web-01 100.25.168.101:80 check
         server 443429-web-02 35.175.63.83:80 check
+
