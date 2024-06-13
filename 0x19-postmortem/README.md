@@ -2,7 +2,7 @@
 
 #		Project Overview:
 
-####		The Doorbell System project aimed to develop a smart doorbell solution that includes a video camera, two-way audio, motion detection, and integration with a mobile application for remote monitoring and notifications. The project was scheduled to last six months, from January 1, 2024, to June 30, 2024, and involved a team of software developers, hardware engineers, QA testers, and product managers.
+The Doorbell System project aimed to develop a smart doorbell solution that includes a video camera, two-way audio, motion detection, and integration with a mobile application for remote monitoring and notifications. The project was scheduled to last six months, from January 1, 2024, to June 30, 2024, and involved a team of software developers, hardware engineers, QA testers, and product managers.
 
 
 #		Summary:
@@ -12,7 +12,7 @@ The project successfully developed and launched the Doorbell System on time. The
 
 #		Timeline:
 
-->January 1, 2024: Project kickoff and requirements gathering.
+January 1, 2024: Project kickoff and requirements gathering.
 
 February 15, 2024: Completion of initial hardware prototype.
 
